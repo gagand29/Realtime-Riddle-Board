@@ -1,0 +1,8 @@
+.comment-stack {
+  /* Add any custom stacking or animation styles here if needed */
+}
+
+.comment-avatar {
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+  font-family: inherit;
+} 
