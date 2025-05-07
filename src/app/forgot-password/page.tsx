@@ -1,22 +1,35 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleReset = async () => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/update-password`
-    })
-    setMessage(error ? error.message : '✅ Check your email to reset your password.')
-  }
+      redirectTo: `${window.location.origin}/update-password`,
+    });
+    setMessage(
+      error ? error.message : "✅ Check your email to reset your password."
+    );
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    window.location.href = "/login";
+  };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-xl shadow space-y-4">
+    <main className="min-h-screen flex justify-center bg-gray-900 px-4 pt-8">
+      <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-xl shadow space-y-4">
+        <div className="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 pb-3 mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+            ⚡ Live Feedback
+          </h1>
+        </div>
+
         <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center">
           Forgot Password
         </h2>
@@ -39,9 +52,11 @@ export default function ForgotPasswordPage() {
         </button>
 
         {message && (
-          <p className="text-sm text-center text-gray-600 dark:text-gray-400">{message}</p>
+          <p className="text-sm text-center text-gray-600 dark:text-gray-400">
+            {message}
+          </p>
         )}
       </div>
     </main>
-  )
+  );
 }

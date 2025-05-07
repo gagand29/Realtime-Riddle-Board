@@ -97,7 +97,7 @@ const DashboardPage = () => {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">⚡ Live Feedback</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome</h1>
           <button
             onClick={handleLogout}
             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold"
