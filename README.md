@@ -1,5 +1,7 @@
 # ⚡ Supabase Realtime Riddle Board
 
+https://pitch.com/v/realtime-riddle-board-4qhdnk
+
 A minimal full-stack app built with **Next.js** and **Supabase** to explore:
 
 - 🔐 OAuth & Email Auth via Supabase
